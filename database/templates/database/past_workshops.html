@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Past Workshops</title>
+    <link rel="stylesheet" href="{% static 'database/past_workshop.css' %}">
+</head>
+<body>
+    <h1>Past Workshops</h1>
+
+    <div class="card-container">
+        {% for workshop in past_workshops %}
+            <div class="card">
+                {% if workshop.image %}
+                    <img src="{{ workshop.image.url }}" alt="{{ workshop.title }}">
+                {% else %}
+                    <img src="{% static 'images/default_workshop.jpg' %}" alt="No image">
+                {% endif %}
+                <div class="card-content">
+                    <h2>{{ workshop.title }}</h2>
+                    <p><strong>Date:</strong> {{ workshop.date }}</p>
+                    <p><strong>Time:</strong> {{ workshop.time }}</p>
+                    <p><strong>Location:</strong> {{ workshop.location }}</p>
+                    <p>{{ workshop.description|truncatewords:20 }}</p>
+                </div>
+            </div>
+        {% empty %}
+            <p>No past workshops available.</p>
+        {% endfor %}
+    </div>
+
+    <div class="center">
+        <a href="{% url 'workshops' %}">
+            <button>Back to All Workshops</button>
+        </a>
+    </div>
+</body>
+</html>

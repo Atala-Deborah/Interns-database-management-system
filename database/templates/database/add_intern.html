@@ -1,0 +1,22 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Intern</title>
+    <link rel="stylesheet" href="{% static 'database/form-style.css' %}">
+</head>
+<body>
+    <h1>Intern Registration</h1>
+
+    <form method="post" class="form-container">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <a href="{% url 'intern_registry' %}">Back to Intern List</a>
+</body>
+</html>

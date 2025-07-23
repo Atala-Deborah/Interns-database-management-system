@@ -1,0 +1,36 @@
+body {
+    background-color: #e3f2fd;
+}
+
+h1 {
+    font-size: 28px;
+    color: #0d47a1;
+    text-align: center;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 60%;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+a {
+    text-align: center;
+    display: block;
+    color: #007bff;
+    text-decoration: underline;
+    margin-top: 10px;
+}

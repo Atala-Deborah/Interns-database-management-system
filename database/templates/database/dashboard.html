@@ -1,0 +1,176 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniPod Dashboard</title>
+  <link rel="stylesheet" href="{% static 'database/dashboard.css' %}">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo-section">
+        <img src="logo.png" alt="UniPod Logo" class="logo" />
+        <h2>UniPod</h2>
+      </div>
+      <nav class="nav-menu">
+        <a href="#">Dashboard</a>
+        <a href="{% url 'intern_registry' %}" class="btn btn-primary">Intern Registry</a>
+        <a href="{% url 'workshops' %}">Workshops <span class="badge">1</span></a>
+        <a href="{% url 'projects' %}">Projects</a>
+        <a href="#">Statistics</a>
+        <a href="#">New Broadcast</a>
+      </nav>
+      <div class="logout-section">
+        <a href="#">Logout</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <h1>Dashboard</h1>
+        <div class="user-profile">
+          <span>admin</span>
+        </div>
+      </header>
+
+      <!-- Dashboard body -->
+      <div class="dashboard-body">
+        <!-- Left side: cards and table -->
+        <div class="left-panel">
+          <!-- Cards Section -->
+          <section class="cards">
+            <div class="card card-purple">
+              <h3>Total number of Interns</h3>
+              <p>80</p>
+            </div>
+            <div class="card card-blue">
+              <h3>Number of Departments</h3>
+              <p>80</p>
+            </div>
+            <div class="card card-green">
+              <h3>Number of Male Interns</h3>
+              <p>80</p>
+            </div>
+            <div class="card card-teal">
+              <h3>Number of Female Interns</h3>
+              <p>80</p>
+            </div>
+          </section>
+
+          <!-- Intern Table Section -->
+          <section class="intern-table">
+            <div class="table-header">
+              <h2>Interns</h2>
+              <a href="#" class="view-all">View all &rarr;</a>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>UID</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Project</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>John Doe</td>
+                  <td>Textile</td>
+                  <td>African Prints</td>
+                  <td><span class="badge in-progress">In Progress</span></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>John Doe</td>
+                  <td>Electrical</td>
+                  <td>Charger</td>
+                  <td><span class="badge completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>John Doe</td>
+                  <td>CAD Room</td>
+                  <td>Charger Board</td>
+                  <td><span class="badge not-started">Not Started</span></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>John Doe</td>
+                  <td>Food Tech</td>
+                  <td>Wine</td>
+                  <td><span class="badge in-progress">In Progress</span></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>John Doe</td>
+                  <td>Media</td>
+                  <td>Podcasts</td>
+                  <td><span class="badge completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>John Doe</td>
+                  <td>Music</td>
+                  <td>Concert</td>
+                  <td><span class="badge in-progress">In Progress</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+        <!-- Right Panel: Upcoming Events -->
+        <aside class="right-panel">
+          <h3>Upcoming Events</h3>
+          <!-- Recently Added Workshops Section -->
+
+          <section class="workshop-section">
+            <div class="section-header">
+              <h2>Recently Added Workshops</h2>
+              <a href="{% url 'workshops' %}" class="view-all">View all &rarr;</a>
+            </div>
+  
+             <div class="workshop-card-container">
+              {% for workshop in workshops %}
+               <div class="workshop-card">
+                 {% if workshop.image %}
+                  <img src="{{ workshop.image.url }}" style="width: 250px; height:200px; " alt="{{ workshop.title }}">
+              {% else %}
+                  <img src="{% static 'images/default_workshop.jpg' %}" alt="No image available">
+              {% endif %}
+        <div class="workshop-details">
+          <h4>{{ workshop.title }}</h4>
+          <p><strong>Date:</strong> {{ workshop.date }}</p>
+          <p><strong>Time:</strong> {{ workshop.time }}</p>
+          <p><strong>Location:</strong> {{ workshop.location }}</p>
+        </div>
+      </div>
+    {% empty %}
+      <p>No recent workshops.</p>
+    {% endfor %}
+  </div>
+</section>
+
+          
+          
+        </aside>
+      </div>
+      <section class="welcome-banner">
+  <div class="welcome-text">
+    <h2>Welcome to UniPod Intern Dashboard</h2>
+    <p>Track, manage and explore your internship journey with ease!</p>
+  </div>
+  <img src="https://via.placeholder.com/200x120?text=Welcome" alt="Welcome Image" class="welcome-image" />
+
+</section>
+
+    </main>
+  </div>
+</body>
+</html>

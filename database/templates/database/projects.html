@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projects</title>
+    <link rel="stylesheet" href="{% static 'database/projects.css' %}">
+</head>
+<body>
+    <h1>Project List</h1>
+    <a href="{% url 'create_project' %}">+ Add New Project</a>
+
+    {% if projects %}
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Project</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                <tr>
+                    <td>{{ project.user_id }}</td>
+                    <td>{{ project.name }}</td>
+                    <td>{{ project.department }}</td>
+                    <td>{{ project.project }}</td>
+                    <td>{{ project.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No projects have been added yet.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workshops</title>
+    <link rel="stylesheet" href="{% static 'database/workshop.css' %}">
+</head>
+<body>
+    <h1>Ongoing Workshops</h1>
+    
+    <div class="button-container">
+    <a href="{% url 'create_workshop' %}"><button>Create Workshop</button></a>
+    <a href="{% url 'workshop_history' %}"><button>View Past Workshops</button></a>
+</div>
+
+
+    <div class="card-container">
+        {% for workshop in workshops %}
+        <div class="card">
+            <img src="{{ workshop.image.url }}" alt="{{ workshop.title }}" style="width: 100%;">
+            <h2>{{ workshop.title }}</h2>
+            <p>Date: {{ workshop.date }}</p>
+            <p>Time: {{ workshop.time }}</p>
+            <p>Location: {{ workshop.location }}</p>
+            <p>{{ workshop.description }}</p>
+        </div>
+        {% empty %}
+        <p>No ongoing workshops.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
