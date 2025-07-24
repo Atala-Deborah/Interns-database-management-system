@@ -21,7 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2c3e50;
+  background-color: #2298e7;
   color: white;
   padding: 15px 20px;
   border-radius: 8px;
@@ -55,7 +55,7 @@ body {
 }
 
 table {
-  width: 100%;
+  width: 70%;
   border-collapse: collapse;
 }
 
@@ -144,4 +144,33 @@ th {
 }
 .btn-danger:hover {
   background-color: darkred;
+}
+
+/* Layout from base.css */
+
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  max-width: calc(100% - 250px); /* Prevent overflow beyond sidebar */
+  overflow-x: auto;
+}
+
+/* Registry-specific */
+.registry-table table {
+  width: 50%;
+  border-collapse: collapse;
+}
+
+.registry-table th,
+.registry-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

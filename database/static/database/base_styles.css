@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #579eee;
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+    position: fixed;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.nav-menu a {
+    display: block;
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.nav-menu a:hover {
+    background-color: #76f3c9;
+}
+
+.main-content {
+    margin-left: 240px;
+    padding: 20px;
+    flex-grow: 1;
+}

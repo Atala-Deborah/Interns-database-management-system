@@ -83,3 +83,12 @@ def create_project(request):
         form = ProjectForm()
     return render(request, 'database/create_project.html', {'form': form})
 
+def statistics_view(request):
+    return render(request, 'database/statistics.html')
+
+from django.shortcuts import render
+
+def new_broadcast_view(request):
+    return render(request, 'database/new_broadcast.html')
+
+

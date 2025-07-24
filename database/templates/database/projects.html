@@ -1,11 +1,16 @@
+{% extends 'database/base.html' %}
 {% load static %}
+{% block title %}Create Project{% endblock %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Projects</title>
+    {% block content %}
     <link rel="stylesheet" href="{% static 'database/projects.css' %}">
 </head>
 <body>
+    
     <h1>Project List</h1>
     <a href="{% url 'create_project' %}">+ Add New Project</a>
 
@@ -35,5 +40,6 @@
     {% else %}
         <p>No projects have been added yet.</p>
     {% endif %}
+    {% endblock %}
 </body>
 </html>

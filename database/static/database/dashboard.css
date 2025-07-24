@@ -216,7 +216,7 @@ th, td {
 /* Right Panel (Upcoming Events) */
 
 .right-panel {
-  width: 70%; /* or adjust to 60% or less if needed */
+  width: 50%; /* or adjust to 60% or less if needed */
   padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;

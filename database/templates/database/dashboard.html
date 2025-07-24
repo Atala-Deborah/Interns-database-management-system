@@ -21,8 +21,8 @@
         <a href="{% url 'intern_registry' %}" class="btn btn-primary">Intern Registry</a>
         <a href="{% url 'workshops' %}">Workshops <span class="badge">1</span></a>
         <a href="{% url 'projects' %}">Projects</a>
-        <a href="#">Statistics</a>
-        <a href="#">New Broadcast</a>
+        <a href="{% url 'statistics' %}">Statistics</a>
+        <a href="{% url 'new_broadcast' %}">New Broadcast</a>
       </nav>
       <div class="logout-section">
         <a href="#">Logout</a>
@@ -140,7 +140,7 @@
               {% for workshop in workshops %}
                <div class="workshop-card">
                  {% if workshop.image %}
-                  <img src="{{ workshop.image.url }}" style="width: 250px; height:200px; " alt="{{ workshop.title }}">
+                  <img src="{{ workshop.image.url }}" style="width: 180px; height:200px; " alt="{{ workshop.title }}">
               {% else %}
                   <img src="{% static 'images/default_workshop.jpg' %}" alt="No image available">
               {% endif %}

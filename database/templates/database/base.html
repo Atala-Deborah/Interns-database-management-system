@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}UniPod{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'database/base_styles.css' %}">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img src="{% static 'database/logo.png' %}" alt="UniPod Logo" class="logo" />
+            <h2>UniPod</h2>
+        </div>
+        <nav class="nav-menu">
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'intern_registry' %}" class="btn btn-primary">Intern Registry</a>
+            <a href="{% url 'workshops' %}">Workshops</a>
+            <a href="{% url 'projects' %}">Projects</a>
+            <a href="{% url 'statistics' %}">Statistics</a>
+            <a href="{% url 'new_broadcast' %}">New Broadcast</a>
+        </nav>
+        <div class="logout-section">
+            <a href="#">Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        {% block content %}
+        <!-- Page content will go here -->
+        {% endblock %}
+    </main>
+</body>
+</html>
